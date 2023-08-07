@@ -1,0 +1,16 @@
+%{
+#include <stdio.h>
+%}
+
+URL [a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,}(\/\S*)?
+SPACE [ \t\n]
+%%
+{URL}    printf("Valid URL: %s\n", yytext);
+{SPACE}  /* Ignore whitespace */
+.        /* Ignore any other characters */
+%%
+int yywrap(){}
+int main() {
+    yylex();
+    return 0;
+}

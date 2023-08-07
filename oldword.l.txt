@@ -1,0 +1,13 @@
+%{
+#include <stdio.h>
+%}
+
+%%
+"oldword"   printf("newword");
+.           ECHO;
+%%
+
+int main() {
+    yylex();
+    return 0;
+}
